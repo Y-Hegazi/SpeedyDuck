@@ -13,7 +13,7 @@ def generate_launch_description():
     nav2_yaml = os.path.join(get_package_share_directory(package_name), 'config', 'amcl_config.yaml')
     map_file = os.path.join(get_package_share_directory(package_name), 'config', 'obs_map.yaml') #change to your map
     rviz_config_file = os.path.join(get_package_share_directory(package_name), "rviz", "main.rviz")
-    use_rviz = LaunchConfiguration("rviz", default=True)
+    use_rviz = LaunchConfiguration("rviz", default=False)
 
     return LaunchDescription([
         Node(
