@@ -6,7 +6,7 @@ The Speedy Duck is a versatile robot designed for Simultaneous Localization and 
 
 ## Features
 
-- SLAM: The Speedy Duck robot performs SLAM to create a map of its environment.
+- SLAM: The Speedy Duck robot performs SLAM to create a map of its environment. 
 - Path Planning: It utilizes the Nav2 stack to plan efficient paths for reaching goals.
 - Navigation: The robot autonomously navigates through its environment using the planned paths.
 - Differential Drive: The Speedy Duck has a differential drive system for smooth and precise movement.
@@ -42,4 +42,12 @@ Make sure to install the following dependencies before building the Speedy Duck 
  ```bash
  git clone https://github.com/speedy_duck/speedy_duck.git
 colcon build --pacakges-select speedy_duck duck_navigation --symlink-install 
+ros2 launch speedy_duck launch_sim.launch.py
  ```
+for real robot
+```bash
+git clone https://github.com/joshnewans/serial
+git clone https://github.com/joshnewans/diffdrive_arduino
+git clone https://github.com/CreedyNZ/rplidar_ros2.git
+ros2 launch speedy_duck launch_robot.launch.py
+```
