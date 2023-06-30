@@ -12,7 +12,7 @@ def generate_launch_description():
     
     nav2_yaml = os.path.join(get_package_share_directory(package_name), 'config', 'amcl_config.yaml')
     map_file = os.path.join(get_package_share_directory(package_name), 'config', 'obs_map.yaml') #change to your map
-    rviz_config_file = os.path.join(get_package_share_directory(package_name), "rviz", "main.rviz")
+    rviz_config_file = os.path.join(get_package_share_directory(package_name), "rviz", "navigation.rviz")
     controller_yaml = os.path.join(get_package_share_directory('duck_navigation'), 'config', 'controller.yaml')
     bt_navigator_yaml = os.path.join(get_package_share_directory('duck_navigation'), 'config', 'bt_navigator.yaml')
     planner_yaml = os.path.join(get_package_share_directory('duck_navigation'), 'config', 'planner_server.yaml')
