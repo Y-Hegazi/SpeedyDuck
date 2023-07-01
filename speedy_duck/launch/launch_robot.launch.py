@@ -12,6 +12,7 @@ from launch.event_handlers import OnProcessStart
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
+import launch
 
 
 
@@ -69,16 +70,6 @@ def generate_launch_description():
     )
 
 
-    rviz_config_file = os.path.join(get_package_share_directory(package_name), "rviz", "view_bot.rviz")
-    use_rviz = LaunchConfiguration("rviz", default=False)
-    rviz = Node(
-        package= "rviz2",
-        executable= "rviz2",
-        arguments=["-d", rviz_config_file],
-        output= "screen",
-        condition=IfCondition(use_rviz)
-    )
-
     lidar = Node(
             package='rplidar_ros',
             node_executable='rplidar_composition',
@@ -99,14 +90,47 @@ def generate_launch_description():
     )
 
 
-
+    ekf_file = os.path.join(get_package_share_directory(package_name), 'config', 'ekf.yaml')
+    robot_localization_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[ekf_file]
+        )
+    
+    mpu6050_file = os.path.join(get_package_share_directory(package_name), 'config', 'mpu6050.yaml')
+    imu = Node(
+        package='mpu6050driver',
+        executable='mpu6050driver',
+        name='mpu6050driver_node',
+        output="screen",
+        emulate_tty=True,
+        parameters=[mpu6050_file]
+    )
+    
+    imu_fuser = Node(
+                package='imu_complementary_filter',
+                node_executable='complementary_filter_node',
+                name='complementary_filter_gain_node',
+                output='screen',
+                parameters=[
+                    {'do_bias_estimation': True},
+                    {'do_adaptive_gain': True},
+                    {'use_mag': False},
+                    {'gain_acc': 0.01},
+                    {'gain_mag': 0.01},
+                ],)
+        
     # Launch them all!
-    return LaunchDescription([
+    return LaunchDescription([ 
         rsp,
         cmd_vel_mapper,
         delayed_controller_manager,
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner,
         lidar,
-        rviz,
+        imu,
+        imu_fuser,
+        robot_localization_node,
     ])
