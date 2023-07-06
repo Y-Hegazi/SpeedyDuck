@@ -4,20 +4,20 @@
     <xacro:include filename="inertial_macros.xacro"/>
 
 
-    <xacro:property name="chassis_length" value="0.45"/>
+    <xacro:property name="chassis_length" value="0.40"/>
     <xacro:property name="chassis_width" value="0.30"/>
     <xacro:property name="chassis_height" value="0.11"/>
-    <xacro:property name="chassis_mass" value="1.0"/>
-    <xacro:property name="wheel_radius" value="0.0625"/>
-    <xacro:property name="wheel_thickness" value="0.042"/>
-    <xacro:property name="wheel_mass" value="0.330"/>
-    <xacro:property name="wheel_offset_x" value="0.115"/>
-    <xacro:property name="wheel_offset_y" value="0.165"/>
-    <xacro:property name="wheel_offset_z" value="0.025"/>
+    <xacro:property name="chassis_mass" value="2.0"/>
+    <xacro:property name="wheel_radius" value="0.0325"/>
+    <xacro:property name="wheel_thickness" value="0.027"/>
+    <xacro:property name="wheel_mass" value="0.037"/>
+    <xacro:property name="wheel_offset_x" value="0.1285"/>
+    <xacro:property name="wheel_offset_y" value="0.112"/>
+    <xacro:property name="wheel_offset_z" value="-0.025"/>
     <xacro:property name="caster_wheel_radius" value="0.01"/>
     <xacro:property name="caster_wheel_mass" value="0.01"/>
-    <xacro:property name="caster_wheel_offset_x" value="0.355"/>
-    <xacro:property name="caster_wheel_offset_z" value="${wheel_offset_z - wheel_radius + caster_wheel_radius}"/>
+    <xacro:property name="caster_wheel_offset_x" value="0.370"/>
+    <xacro:property name="caster_wheel_offset_z" value="-0.045"/>
 
     <material name="white">
         <color rgba="1 1 1 1" />
