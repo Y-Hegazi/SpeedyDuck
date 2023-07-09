@@ -3,10 +3,10 @@
 <table>
   <tr>
     <td>
-      <img src="speedy_duck_gazebo.png" alt="Speedy Duck Gazebo" width="400px">
+      <img src="media/speedy_duck_gazebo.png" alt="Speedy Duck Gazebo" width="400px">
     </td>
     <td>
-      <img src="real_robot.jpg" alt="Real Robot" width="400px">
+      <img src="media/real_robot.jpg" alt="Real Robot" width="400px">
     </td>
   </tr>
 </table>
@@ -95,14 +95,15 @@ Configured and started diff_cont
 ```bash
 ros2 run nav2_map_server map_saver_cli -f <name_of_your_new_map>
 ``` 
-<span style="color: red;">Important!!</span> 5- When you use real robot I recommend you to connect to raspberrypi using ssh and launch robot, then launch navigation using the terminal of your pc (don't use raspberrypi's terminal). By doing that you're using ROS2 amazing built in feature that makes all machines in the same network share the same topics.
+**<span style="color: red;">Important!!</span>** 5- When you use real robot I recommend you to connect to raspberrypi using ssh and launch robot, then launch navigation using the terminal of your pc (don't use raspberrypi's terminal). By doing that you're using ROS2 amazing built in feature that makes all machines in the same network share the same topics.
 Now you can use rviz to visualise your real robot on your pc.
 
 
 
 
 <span style="font-size:larger;">Sim</span>
-![Video](speedy_duck_nav.gif)
+
+![Video](media/speedy_duck_nav.gif)
 
 
 
@@ -111,11 +112,12 @@ Now you can use rviz to visualise your real robot on your pc.
 <table>
   <tr>
     <td>
-      <img src="map_from_rviz.png" alt="Map from rviz" width="400px">
+      <img src="media/map_from_rviz.png" alt="Map from rviz" width="400px">
     </td>
     <td>
-      <img src="real_map.jpeg" alt="Real map" width="400px">
+      <img src="media/real_map.jpeg" alt="Real map" width="400px">
     </td>
   </tr>
 </table>
-<video src="sync_fast.mp4" controls title="Title"></video>
+
+![Video](media/navigation.gif)
