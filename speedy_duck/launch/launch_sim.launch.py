@@ -6,7 +6,6 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.conditions import IfCondition
-import launch
 
 
 
@@ -67,32 +66,14 @@ def generate_launch_description():
     )
 
 
-    
-    
-    
-    
-    ekf_file = os.path.join(get_package_share_directory(package_name), 'config', 'ekf.yaml')
-    robot_localization_node = Node(
-        package='robot_localization',
-        executable='ekf_node',
-        name='ekf_filter_node',
-        output='screen',
-        parameters=[ekf_file, {'use_sim_time': LaunchConfiguration('use_sim_time')}]
-    )
 
     # Launch them all!
     return LaunchDescription([
-        launch.actions.DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='True',
-            description='Use sim time if true'),
         rsp,
         cmd_vel_mapper,
         gazebo,
         spawn_entity,
         diff_drive_spawner,
         joint_broad_spawner,
-        robot_localization_node,
-        rviz,
+        rviz
     ])
-    

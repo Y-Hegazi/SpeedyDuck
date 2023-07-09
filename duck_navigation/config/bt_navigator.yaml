@@ -4,11 +4,11 @@ bt_navigator:
     use_sim_time: True
     global_frame: map
     robot_base_frame: base_footprint # base_link
-    odom_topic: /odometry/filtered
+    odom_topic: /odom
     enable_groot_monitoring: True
     groot_zmq_publisher_port: 1666
     groot_zmq_server_port: 1667
-    default_bt_xml_filename: "/home/hegazi/imu_branch/src/SpeedyDuck/duck_navigation/config/behavior.xml" #change to your path
+    default_bt_xml_filename: "/home/hegazi/graduation_ws/src/duck_navigation/config/behavior.xml" #change to your path
     plugin_lib_names:
     - nav2_compute_path_to_pose_action_bt_node
     - nav2_follow_path_action_bt_node
