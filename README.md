@@ -1,6 +1,15 @@
 # 1. Speedy Duck Robot
 
-![Speedy Duck](speedy_duck_gazebo.png)
+<table>
+  <tr>
+    <td>
+      <img src="speedy_duck_gazebo.png" alt="Speedy Duck Gazebo" width="400px">
+    </td>
+    <td>
+      <img src="real_robot.jpg" alt="Real Robot" width="400px">
+    </td>
+  </tr>
+</table>
 
 The Speedy Duck is a versatile robot designed for Simultaneous Localization and Mapping (SLAM), path planning, and navigation tasks. It is a differential drive robot that utilizes ROS 2 (Foxy), the Nav2 stack, and ROS 2 Control. The robot can operate both in simulation using Gazebo and in real-life using a Raspberry Pi.
 
@@ -63,6 +72,12 @@ cd ..
 colcon build --symlink-install
  ```
 
+ 
+
+
+ <span style="font-size:medium;">**For Arduino**</span>, use this [code by joshnewans](https://github.com/joshnewans/ros_arduino_bridge/tree/main).
+
+
 
 # 6. Gotchas
 
@@ -86,5 +101,21 @@ Now you can use rviz to visualise your real robot on your pc.
 
 
 
-
+<span style="font-size:larger;">Sim</span>
 ![Video](speedy_duck_nav.gif)
+
+
+
+<span style="font-size:larger;">Real robot</span>
+
+<table>
+  <tr>
+    <td>
+      <img src="map_from_rviz.png" alt="Map from rviz" width="400px">
+    </td>
+    <td>
+      <img src="real_map.jpeg" alt="Real map" width="400px">
+    </td>
+  </tr>
+</table>
+<video src="sync_fast.mp4" controls title="Title"></video>
