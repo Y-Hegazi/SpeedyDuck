@@ -4,7 +4,6 @@ from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
 
 
-
 def generate_launch_description():
 
     cartographer_config_dir = os.path.join(get_package_share_directory('duck_navigation'), 'config')
@@ -21,7 +20,7 @@ def generate_launch_description():
     
     grid = Node(
             package='cartographer_ros',
-            executable='occupancy_grid_node',
+            executable='cartographer_occupancy_grid_node',
             output='screen',
             name='occupancy_grid_node',
             parameters=[{'use_sim_time': True}],

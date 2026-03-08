@@ -6,7 +6,7 @@ import os
 from nav2_msgs.srv import LoadMap
 
 from ament_index_python.packages import get_package_share_directory
-map_file = os.path.join(get_package_share_directory('duck_navigation'), 'config', 'obs_map.yaml')
+map_file = os.path.join(get_package_share_directory('duck_navigation'), 'config', 'my_map.yaml')
 
 class Service(Node):
     def __init__(self):
@@ -35,12 +35,10 @@ def main(args=None):
     rclpy.init(args=args)
 
     map_client = Service()
-    # map_client.send_request()  # Remove this line
 
     while rclpy.ok():
-        # pause the program execution, waits for a request to kill the node (ctrl+c)
         rclpy.spin_once(map_client)  # Use spin_once instead of spin
-        # rclpy.spin(map_client)  # Remove this line
+
 
     map_client.destroy_node()
     rclpy.shutdown()

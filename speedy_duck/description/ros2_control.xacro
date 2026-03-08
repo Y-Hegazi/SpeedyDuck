@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <!-- ── Real robot hardware ──────────────────────────────────────────── -->
     <xacro:unless value="$(arg sim_mode)">
         <ros2_control name="RealRobot" type="system">
             <hardware>
@@ -32,10 +33,11 @@
         </ros2_control>
     </xacro:unless>
 
+    <!-- ── Gazebo Sim 8 / Harmonic hardware ─────────────────────────────── -->
     <xacro:if value="$(arg sim_mode)">
         <ros2_control name="GazeboSystem" type="system">
             <hardware>
-                <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+                <plugin>gz_ros2_control/GazeboSimSystem</plugin>  <!-- was gazebo_ros2_control/GazeboSystem -->
             </hardware>
             <joint name="left_wheel_joint">
                 <command_interface name="velocity">
@@ -57,9 +59,9 @@
     </xacro:if>
 
     <gazebo>
-        <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+        <plugin filename="gz_ros2_control-system"
+                name="gz_ros2_control::GazeboSimROS2ControlPlugin">
             <parameters>$(find speedy_duck)/config/my_controllers.yaml</parameters>
-            <parameters>$(find speedy_duck)/config/gaz_ros2_ctl_use_sim.yaml</parameters>
         </plugin>
     </gazebo>
 
